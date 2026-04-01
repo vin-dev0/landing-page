@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    {{ $styles := resources.Get "css/styles.css" }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}">
+    {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}">{{ end }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="{{ .Site.Home.RelPermalink }}">
+                    <span class="logo-git"></span>
+                    <span class="logo-name">CCR.</span>
+                </a>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="{{ .Site.Home.RelPermalink }}#about">About</a></li>
+                    <li><a href="{{ .Site.Home.RelPermalink }}#skills">Skills</a></li>
+                    <li><a href="{{ (site.GetPage "/blog").RelPermalink }}">Blog</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; {{ now.Format "2006" }} Built with Hugo.</p>
+            <div class="social-links">
+                {{ with .Site.Params.github }}<a href="{{ . }}" target="_blank">GitHub</a>{{ end }}
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

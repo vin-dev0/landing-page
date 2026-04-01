@@ -1,0 +1,21 @@
+baseURL = 'https://vin-dev0.github.io/landing-page/'
+languageCode = 'en-us'
+title = 'Coffee Code Repeat | Full Stack Web Developer'
+theme = 'git-portfolio'
+
+[params]
+    name = "Coffee Code Repeat"
+    role = "Full Stack Web Developer"
+    description = "I make webapps in React, NextJS, Prisma, Tailwind, Angular, Vue, and more. Linux pro and homelabber."
+    email = "vin-dev0@users.noreply.github.com"
+    github = "https://github.com/vin-dev0/landing-page"
+    linkedin = "https://linkedin.com/in/vin-dev0"
+    twitter = "https://twitter.com/vin-dev0"
+    
+    # Git-style accent color
+    accent_color = "#f05032"
+    
+    # Skills list
+    skills = [
+        "React", "NextJS", "Prisma", "Tailwind", "Angular", "Vue", "Linux", "Homelab enthusiast"
+    ]

@@ -1,0 +1,79 @@
+{{ define "main" }}
+<section id="about" class="hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Coffee Code Repeat</h1>
+            <p class="hero-subtitle">Full Stack Web Developer</p>
+            <div class="hero-description">
+                {{ .Content }}
+            </div>
+            <div class="hero-cta">
+                <a href="#skills" class="btn btn-primary">Check my Skills</a>
+                <a href="{{ .Site.Params.github }}" class="btn btn-secondary" target="_blank"
+                    rel="noopener noreferrer">GitHub Repo</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- Git-style Branching SVG -->
+            <svg viewBox="0 0 400 300" class="branch-svg">
+                <path d="M 50 150 L 350 150" class="branch-main" />
+                <path d="M 100 150 Q 150 150, 200 100 L 300 100" class="branch-side-1" />
+                <path d="M 100 150 Q 150 150, 200 200 L 300 200" class="branch-side-2" />
+
+                <circle cx="50" cy="150" r="6" class="branch-node" />
+                <circle cx="100" cy="150" r="6" class="branch-node" />
+                <circle cx="200" cy="100" r="6" class="branch-node" />
+                <circle cx="200" cy="200" r="6" class="branch-node" />
+                <circle cx="300" cy="100" r="6" class="branch-node highlight" />
+                <circle cx="300" cy="200" r="6" class="branch-node highlight" />
+                <circle cx="350" cy="150" r="6" class="branch-node highlight" />
+            </svg>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="skills-section">
+    <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            {{ range .Site.Params.skills }}
+            <div class="skill-card">
+                <h3>{{ . }}</h3>
+                <p>Expertise in building robust, scalable applications.</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<section id="homelab" class="homelab-section">
+    <div class="container homelab-container">
+        <div class="homelab-content">
+            <h2 class="section-title">Linux & Homelab</h2>
+            <p>I manage a high-availability homelab infrastructure, running everything from Proxmox clusters to
+                Dockerized microservices. A true Linux enthusiast at heart.</p>
+            <div class="homelab-cta">
+                <a href="{{ (site.GetPage " /blog").RelPermalink }}" class="btn btn-secondary">Read my Blog</a>
+            </div>
+        </div>
+        <div class="terminal-box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">~/homelab $</span>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">$</span> uptime</p>
+                <p class="output">05:53:06 up 42 days, 12:45, 1 user, load average: 0.12, 0.08, 0.05</p>
+                <p><span class="prompt">$</span> docker ps --format "table {{ "{{" }}.Names{{ "}}" }}\t{{ "{{"
+                    }}.Status{{ "}}" }}"</p>
+                <p class="output">PORTFOLIO-SITE Up 3 weeks</p>
+                <p class="output">PRISMA-DB Up 3 weeks</p>
+                <p class="output">NEXTJS-APP Up 3 weeks</p>
+                <p><span class="prompt">$</span> _</p>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

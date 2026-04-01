@@ -1,0 +1,2 @@
+# To run the Hugo server locally:
+./bin/hugo server -D --baseURL /
